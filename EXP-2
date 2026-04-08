@@ -1,0 +1,20 @@
+#include <stdio.h>
+ 
+struct Record {
+char name[30];
+int score;
+};
+ 
+int main() {
+FILE *fp;
+struct Record r1 = {"Charlie", 95}, r2;
+printf("25331A05D9\n");
+fp = fopen("binary.dat", "wb");
+fwrite(&r1, sizeof(r1), 1, fp);
+fclose(fp);
+fp = fopen("binary.dat", "rb");
+fread(&r2, sizeof(r2), 1, fp);
+fclose(fp);
+printf("Name: %s, Score: %d\n", r2.name, r2.score);
+return 0;
+}
