@@ -1,0 +1,18 @@
+#include <stdio.h>
+ 
+int main() {
+FILE *fp;
+char name[50];
+int age;
+printf("25331A05D9\n");
+fp = fopen("data.txt", "w");
+if (fp == NULL) { printf("Error!\n"); return 1; }
+fprintf(fp, "Alice 22\nBob 25\n");
+fclose(fp);
+fp = fopen("data.txt", "r");
+printf("File Contents:\n");
+while (fscanf(fp, "%s %d", name, &age) != EOF)
+printf("Name: %s, Age: %d\n", name, age);
+fclose(fp);
+return 0;
+}
